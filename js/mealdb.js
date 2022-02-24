@@ -13,7 +13,7 @@ const displaySearchResult = meals => {
     meals.forEach(meal => {
         const div = document.createElement('div');
         div.classList.add('col');
-        div.innerHTML = ` <div class="card h-100">
+        div.innerHTML = ` <div onclick ="loadMealDetails(${meal.idMeal})" class="card h-100">
         <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${meal.strMeal}</h5>
@@ -24,4 +24,12 @@ const displaySearchResult = meals => {
         searchResult.appendChild(div)
         console.log(meal);
     });
+}
+
+const loadMealDetails = mealId => {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => console.log(data.meals))
 }
