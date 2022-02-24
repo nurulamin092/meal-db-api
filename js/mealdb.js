@@ -1,1 +1,3 @@
-console.log('bismilla');
+const searchFood = () => {
+
+}
