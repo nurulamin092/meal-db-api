@@ -10,6 +10,7 @@ const searchFood = () => {
 
 const displaySearchResult = meals => {
     const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
     meals.forEach(meal => {
         const div = document.createElement('div');
         div.classList.add('col');
@@ -34,7 +35,7 @@ const loadMealDetails = mealId => {
 
 const displayMealDetails = meal => {
     const mealDetails = document.getElementById('meal-details');
-
+    mealDetails.textContent = ''
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `  <div class="card">
